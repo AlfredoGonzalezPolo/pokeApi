@@ -1,6 +1,7 @@
 import { pokeType } from '../types/pokeType';
 import { Pokemon } from '../types/pokemon';
 import { PokemonResponse } from '../types/pokemonDataResponse';
+import { PokemonInfo } from '../types/pokemonInfo';
 import { PokemonsByType } from '../types/pokemonsByType';
 import { PokemonsPage } from '../types/pokemonsPage';
 
@@ -60,6 +61,24 @@ export class PokeApiRespository {
         pokemonsPageData,
         maxPages: Math.ceil(pokemonsPage.count / limit - 1),
       };
+    } catch (error) {
+      return undefined;
+    }
+  }
+
+  async getPokemonsByType(type: string | undefined) {
+    try {
+      const response = await fetch(`${this.url}/type/${type}`);
+      const pokemonsResponse = await response.json();
+
+      const PokemonsByType: PokemonsByType = {
+        results: pokemonsResponse.pokemon.map(
+          (info: { pokemon: PokemonInfo }) => info.pokemon
+        ),
+      };
+
+      const pokemonByTypeData = await this.getPokemonsData(PokemonsByType);
+      return pokemonByTypeData;
     } catch (error) {
       return undefined;
     }
