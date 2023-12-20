@@ -1,16 +1,23 @@
 import { Pokemon } from '../../types/pokemon';
 import { FC } from 'react';
+import PokeCard from '../pokemonCard/PokemonCard';
+import { PokemonCardListStyled } from './PokemonCardListStyled';
 
 interface Props {
   pokemonList: Pokemon[] | undefined;
 }
 
-export const PokemonCardList: FC<Props> = ({ pokemonList }) => {
+const PokemonCardList: FC<Props> = ({ pokemonList }) => {
   return (
     <>
-      {pokemonList?.map((pokemon) => (
-        <li key={pokemon.id}></li>
-      ))}
+      <PokemonCardListStyled>
+        {pokemonList?.map((pokemon) => (
+          <li key={pokemon.id}>
+            <PokeCard pokemon={pokemon} />
+          </li>
+        ))}
+      </PokemonCardListStyled>
     </>
   );
 };
+export default PokemonCardList;

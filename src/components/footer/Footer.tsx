@@ -1,3 +1,7 @@
 export function Footer() {
-  return <></>;
+  return (
+    <>
+      <p>Esto es un footer</p>
+    </>
+  );
 }
