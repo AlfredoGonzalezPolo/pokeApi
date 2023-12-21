@@ -4,6 +4,7 @@ export type Pokemon = {
   id: number;
   name: string;
   imgUrl: string;
+  imgUrlBack: string;
 
   size: {
     weight: number;

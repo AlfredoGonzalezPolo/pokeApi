@@ -1,6 +1,6 @@
 import { Pokemon } from '../../types/pokemon';
 import { FC } from 'react';
-import PokeCard from '../pokemonCard/PokemonCard';
+import PokemonCard from '../pokemonCard/PokemonCard';
 import { PokemonCardListStyled } from './PokemonCardListStyled';
 
 interface Props {
@@ -13,7 +13,7 @@ const PokemonCardList: FC<Props> = ({ pokemonList }) => {
       <PokemonCardListStyled>
         {pokemonList?.map((pokemon) => (
           <li key={pokemon.id}>
-            <PokeCard pokemon={pokemon} />
+            <PokemonCard pokemon={pokemon} />
           </li>
         ))}
       </PokemonCardListStyled>

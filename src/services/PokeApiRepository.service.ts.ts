@@ -18,6 +18,11 @@ export class PokeApiRespository {
           .front_default ||
         pokemonInfo.sprites.front_default ||
         '/assets/pokeball-default.gif',
+      imgUrlBack:
+        pokemonInfo.sprites.versions['generation-v']['black-white'].animated
+          .back_default ||
+        pokemonInfo.sprites.back_default ||
+        '/assets/pokeball-default.gif',
       size: {
         weight: pokemonInfo.weight,
         height: pokemonInfo.height,

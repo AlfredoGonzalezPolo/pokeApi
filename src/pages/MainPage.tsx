@@ -6,6 +6,7 @@ import usePokemons from '../hooks/usePokemons';
 
 const MainPageStyled = styled.section`
   margin: 0;
+  padding: 1rem;
   overflow-y: hidden;
   overflow-x: hidden;
 `;

@@ -1,4 +1,4 @@
-import { Stat } from './Stats';
+import { Stat } from './stats';
 import { Type } from './type';
 
 export type PokemonResponse = {
@@ -10,11 +10,13 @@ export type PokemonResponse = {
   types: Type[] | undefined[];
   sprites: {
     front_default?: string;
+    back_default?: string;
     versions: {
       'generation-v': {
         'black-white': {
           animated: {
             front_default: string;
+            back_default: string;
           };
         };
       };
