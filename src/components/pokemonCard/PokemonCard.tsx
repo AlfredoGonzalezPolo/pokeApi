@@ -13,7 +13,7 @@ const PokemonCard: FC<Props> = ({ pokemon }) => {
     <PokemonCardStyled pokemon={pokemon} className="pokemon-card">
       <div className="pokemon-info">
         <h2 className="pokemon-name">{name.toUpperCase()}</h2>
-        <p className="pokemon-id">#{id.toString()}</p>
+        <p className="pokemon-id"># {id.toString()}</p>
       </div>
       <div className="pokemon-img-container">
         <img

@@ -3,6 +3,7 @@ import { Footer } from '../components/footer/Footer';
 import { Header } from '../components/header/Header';
 import PokemonCardList from '../components/pokemonCardList/PokemonCardList';
 import usePokemons from '../hooks/usePokemons';
+import Pagination from '../components/pagination/Pagination';
 
 const MainPageStyled = styled.section`
   margin: 0;
@@ -12,12 +13,18 @@ const MainPageStyled = styled.section`
 `;
 
 const MainPage = () => {
-  const { pokemons, page, setPage, setLimit } = usePokemons();
+  const { pokemons, page, setPage, setLimit, maxPages } = usePokemons();
 
   return (
     <>
       <MainPageStyled>
         <Header />
+        <Pagination
+          maxPages={maxPages}
+          page={page}
+          setLimit={setLimit}
+          setPage={setPage}
+        />
         {pokemons && <PokemonCardList pokemonList={pokemons} />}
         <Footer />
       </MainPageStyled>
