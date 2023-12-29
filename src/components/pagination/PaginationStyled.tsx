@@ -8,7 +8,7 @@ export const PaginationStyled = styled.section`
 
   .results {
     display: flex;
-    position: absolute;
+    position: relative;
     align-items: center;
     font-size: 1rem;
     margin-left: 1rem;
