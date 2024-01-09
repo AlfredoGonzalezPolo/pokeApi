@@ -10,7 +10,7 @@ html,
 body {
   font-family: 'Pokemon Hollow', 'Pocket Monk', 'Pokemon Solid', 'Courier New',
     Courier, monospace, sans-serif;
-  background-image: url('/public/assets/fondo3.png');
+  background-image: url('/assets/fondo3.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

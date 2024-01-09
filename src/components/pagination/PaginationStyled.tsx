@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-export const PaginationStyled = styled.section`
+interface StyledProps {
+  page: number;
+}
+
+export const PaginationStyled = styled.section<StyledProps>`
   width: 100%;
   align-items: center;
   display: flex;

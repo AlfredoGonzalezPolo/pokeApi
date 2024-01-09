@@ -1,10 +1,10 @@
-import { FC, MouseEventHandler } from 'react';
+import { FC, MouseEventHandler, ReactNode } from 'react';
 
 interface Props {
   className: string;
-  children?: any;
+  children?: ReactNode;
   disabled: boolean;
-  onClick: MouseEventHandler;
+  onClick?: MouseEventHandler;
 }
 const PaginationButton: FC<Props> = ({
   className,

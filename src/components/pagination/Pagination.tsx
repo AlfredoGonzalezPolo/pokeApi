@@ -13,7 +13,7 @@ const Pagination: FC<Props> = ({ setPage, setLimit, page, maxPages }) => {
   const buttonNumbers = [page - 2, page - 1, page, page + 1, page + 2];
 
   return (
-    <PaginationStyled>
+    <PaginationStyled page={page}>
       <ul className="buttons">
         <PaginationButton
           className="arrow"
@@ -48,7 +48,6 @@ const Pagination: FC<Props> = ({ setPage, setLimit, page, maxPages }) => {
           ) : (
             <PaginationButton
               className=""
-              onClick={() => {}}
               disabled
               key={buttonNumber}
               aria-label="Button to navigate through the paging"
@@ -64,6 +63,15 @@ const Pagination: FC<Props> = ({ setPage, setLimit, page, maxPages }) => {
             setPage(page + 1);
           }}
           disabled={page === maxPages}
+        >
+          {' '}
+        </PaginationButton>
+
+        <PaginationButton
+          className="arrow"
+          onClick={() => setPage(maxPages)}
+          disabled={page === maxPages}
+          aria-label="Button to navigate through the paging"
         >
           <MdKeyboardArrowRight className="arrow-icon" />
         </PaginationButton>

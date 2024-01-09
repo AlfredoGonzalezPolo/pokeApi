@@ -62,6 +62,7 @@ export class PokeApiRespository {
       );
       const pokemonsPage: PokemonsPage = await response.json();
       const pokemonsPageData = await this.getPokemonsData(pokemonsPage);
+
       return {
         pokemonsPageData,
         maxPages: Math.ceil(pokemonsPage.count / limit - 1),
