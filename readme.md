@@ -8,7 +8,7 @@ Este proyecto es una aplicación web que permite a los usuarios explorar una col
 
 ## Características
 
-Todos los Pokémon: Esta página muestra un listado de todos los Pokémon obtenidos de la PokéAPI. El listado incluye el nombre del Pokémon y su imagen. Además, se incluye una funcionalidad de paginación para avanzar y retroceder a través del listado. También se muestra el total de Pokémon mostrados versus el total de Pokémon que existen (por ejemplo, 10/1000). Esta permite al usuario mostrar entre 20, 40 o 60 pokemones por pagina.
+Todos los Pokémon: Esta página muestra un listado de todos los Pokémon obtenidos de la PokéAPI. El listado incluye el nombre del Pokémon y su imagen. Además, se incluye una funcionalidad de paginación para avanzar y retroceder a través del listado. También se muestra el total de Pokémon mostrados versus el total de Pokémon que existen (por ejemplo, 10/1000). Esta permite al usuario mostrar entre 20, 50, 100 0 150 pokemones por pagina.
 
 Detalle de Pokémon: Al hacer clic en un Pokémon del listado, los usuarios abren una ventana de detalles donde se muestran más datos sobre el Pokémon seleccionado.
 
