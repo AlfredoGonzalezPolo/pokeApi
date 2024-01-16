@@ -10,7 +10,7 @@ export function Footer() {
         </div> */}
         <div className="contact-socialmedia-container">
           <a href="https://github.com/AlfredoGonzalezPolo" target="_blank">
-            <AiFillLinkedin clasName="linkedin-logo" />
+            <AiFillLinkedin className="linkedin-logo" />
           </a>
           <a href="https://github.com/AlfredoGonzalezPolo" target="_blank">
             <AiFillGithub className="github-logo" />

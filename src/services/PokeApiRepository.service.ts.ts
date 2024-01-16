@@ -89,4 +89,17 @@ export class PokeApiRespository {
       return undefined;
     }
   }
+
+  async getPokemonDetail(pokemonId: string | number) {
+    try {
+      const response = await fetch(`${this.url}/pokemon/${pokemonId}`);
+
+      const pokemonInfo: PokemonResponse = await response.json();
+      const pokemon = this.mapPokemonApiData(pokemonInfo);
+
+      return pokemon;
+    } catch (error) {
+      return undefined;
+    }
+  }
 }

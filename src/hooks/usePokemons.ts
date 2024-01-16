@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Pokemon } from '../types/pokemon';
 import { PokeApiRespository } from '../services/PokeApiRepository.service.ts';
 
-const pokeApiRepo = new PokeApiRespository('https://pokeapi.co/api/v2');
+export const pokeApiRepo = new PokeApiRespository('https://pokeapi.co/api/v2');
 
 const usePokemons = () => {
   const [page, setPage] = useState(0);

@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { Pokemon } from '../../types/pokemon';
 import { PokemonCardStyled } from './PokemonCardStyled';
+import { Link } from 'react-router-dom';
 
 export interface Props {
   pokemon: Pokemon;
@@ -16,14 +17,16 @@ const PokemonCard: FC<Props> = ({ pokemon }) => {
         <p className="pokemon-id"># {id.toString()}</p>
       </div>
       <div className="pokemon-img-container">
-        <img
-          src={imgUrl}
-          alt={name}
-          // width={145}
-          className="pokemon-img"
-          onMouseOver={(e) => (e.currentTarget.src = imgUrlBack)}
-          onMouseOut={(e) => (e.currentTarget.src = imgUrl)}
-        />
+        <Link to={`${id}`}>
+          <img
+            src={imgUrl}
+            alt={name}
+            // width={145}
+            className="pokemon-img"
+            onMouseOver={(e) => (e.currentTarget.src = imgUrlBack)}
+            onMouseOut={(e) => (e.currentTarget.src = imgUrl)}
+          />
+        </Link>
       </div>
       <div className="types"></div>
     </PokemonCardStyled>
