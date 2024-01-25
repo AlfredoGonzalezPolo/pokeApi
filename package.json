@@ -27,7 +27,6 @@
     "react-redux": "^8.1.2",
     "react-router-dom": "^6.15.0",
     "react-spinners": "^0.13.8",
-    "sweetalert2": "^11.10.1",
     "styled-components": "^5.3.9"
   },
   "devDependencies": {
@@ -58,7 +57,7 @@
     "sass": "^1.66.1",
     "ts-jest": "^29.1.1",
     "typescript": "^5.0.2",
-    "vite": "^4.4.5"
+    "vite": "^4.5.2"
   },
   "prettier": {
     "singleQuote": true
