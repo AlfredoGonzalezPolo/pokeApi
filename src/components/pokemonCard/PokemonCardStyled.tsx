@@ -23,7 +23,8 @@ export const PokemonCardStyled = styled.article<Props>`
 
   &:hover {
     transform: scale(1.05);
-    filter: brightness(0.9) saturate(0.5);
+    filter: brightness(1) saturate(1.5);
+    background-color: #c4c7f7;
   }
 
   .pokemon-info {
