@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { pokeType } from '../types/pokeType';
 import { Pokemon } from '../types/pokemon';
 import { PokemonResponse } from '../types/pokemonDataResponse';
@@ -9,6 +10,7 @@ import { PokemonsPage } from '../types/pokemonsPage';
 
 export class PokeApiRespository {
   constructor(public url: string) {}
+
   async mapPokemonApiData(pokemonInfo: PokemonResponse) {
     const pokemon: Pokemon = {
       id: pokemonInfo.id,
@@ -39,8 +41,8 @@ export class PokeApiRespository {
 
   async getPokemonsData(pokemonsPage: PokemonsPage | PokemonsByType) {
     const pokemonDataPromise = pokemonsPage.results.map(async (pokemonRef) => {
-      const response = await fetch(pokemonRef.url);
-      const pokemonInfo: PokemonResponse = await response.json();
+      const response = await axios.get(pokemonRef.url);
+      const pokemonInfo: PokemonResponse = response.data;
       const pokemon = this.mapPokemonApiData(pokemonInfo);
 
       return pokemon;
@@ -57,10 +59,10 @@ export class PokeApiRespository {
 
   async getPokemonPage(page: number = 1, limit: number = 20) {
     try {
-      const response = await fetch(
-        `${this.url}/pokemon/?limit=${limit}&offfset=${page * limit}`
+      const response = await axios.get(
+        `${this.url}/pokemon/?limit=${limit}&offset=${page * limit}`
       );
-      const pokemonsPage: PokemonsPage = await response.json();
+      const pokemonsPage: PokemonsPage = response.data;
       const pokemonsPageData = await this.getPokemonsData(pokemonsPage);
 
       return {
@@ -74,8 +76,8 @@ export class PokeApiRespository {
 
   async getPokemonsByType(type: string | undefined) {
     try {
-      const response = await fetch(`${this.url}/type/${type}`);
-      const pokemonsResponse = await response.json();
+      const response = await axios.get(`${this.url}/type/${type}`);
+      const pokemonsResponse = response.data;
 
       const PokemonsByType: PokemonsByType = {
         results: pokemonsResponse.pokemon.map(
@@ -92,9 +94,9 @@ export class PokeApiRespository {
 
   async getPokemonDetail(pokemonId: string | number) {
     try {
-      const response = await fetch(`${this.url}/pokemon/${pokemonId}`);
+      const response = await axios.get(`${this.url}/pokemon/${pokemonId}`);
 
-      const pokemonInfo: PokemonResponse = await response.json();
+      const pokemonInfo: PokemonResponse = response.data;
       const pokemon = this.mapPokemonApiData(pokemonInfo);
 
       return pokemon;

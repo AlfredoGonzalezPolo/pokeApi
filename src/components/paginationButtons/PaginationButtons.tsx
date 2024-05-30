@@ -11,14 +11,12 @@ const PaginationButton: FC<Props> = ({
   children,
   disabled,
   onClick,
-}) => {
-  return (
-    <li>
-      <button className={className} disabled={disabled} onClick={onClick}>
-        {children}
-      </button>
-    </li>
-  );
-};
+}) => (
+  <li>
+    <button className={className} disabled={disabled} onClick={onClick}>
+      {children}
+    </button>
+  </li>
+);
 
 export default PaginationButton;
