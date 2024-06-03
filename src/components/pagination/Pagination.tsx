@@ -14,6 +14,22 @@ const Pagination: FC<Props> = ({ setPage, setLimit, page, maxPages }) => {
 
   return (
     <PaginationStyled page={page}>
+      <div className="results">
+        <label className="results-label">
+          Page results
+          <select
+            onChange={(e) => {
+              setLimit(+e.currentTarget.value);
+              setPage(0);
+            }}
+          >
+            <option value="20">20</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+            <option value="150">150</option>
+          </select>
+        </label>
+      </div>
       <ul className="buttons">
         <PaginationButton
           className="arrow"
@@ -76,22 +92,6 @@ const Pagination: FC<Props> = ({ setPage, setLimit, page, maxPages }) => {
           <MdKeyboardArrowRight className="arrow-icon" />
         </PaginationButton>
       </ul>
-      <div className="results">
-        <label className="results-label">
-          Page results
-          <select
-            onChange={(e) => {
-              setLimit(+e.currentTarget.value);
-              setPage(0);
-            }}
-          >
-            <option value="20">20</option>
-            <option value="50">50</option>
-            <option value="100">100</option>
-            <option value="150">150</option>
-          </select>
-        </label>
-      </div>
     </PaginationStyled>
   );
 };

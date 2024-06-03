@@ -26,6 +26,12 @@ const MainPage = () => {
           setPage={setPage}
         />
         {pokemons && <PokemonCardList pokemonList={pokemons} />}
+        <Pagination
+          maxPages={maxPages}
+          page={page}
+          setLimit={setLimit}
+          setPage={setPage}
+        />
         <Footer />
       </MainPageStyled>
     </>

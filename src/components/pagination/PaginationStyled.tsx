@@ -15,7 +15,7 @@ export const PaginationStyled = styled.section<StyledProps>`
 
   .results {
     display: flex;
-    position: absolute;
+    position: relative;
     align-items: center;
     font-size: 1.2rem;
     margin-left: 0.4rem;
@@ -50,6 +50,10 @@ export const PaginationStyled = styled.section<StyledProps>`
     margin: 0 auto;
     padding: 24px;
     margin-left: 260px;
+
+    .arrow:hover {
+      background: #c4c7f7;
+    }
 
     li {
       button {
