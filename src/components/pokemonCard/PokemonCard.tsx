@@ -2,13 +2,14 @@ import { FC } from 'react';
 import { Pokemon } from '../../types/pokemon';
 import { PokemonCardStyled } from './PokemonCardStyled';
 import { Link } from 'react-router-dom';
+import PokemonTypes from '../Pokemontypes/PokemonTypes';
 
 export interface Props {
   pokemon: Pokemon;
 }
 
 const PokemonCard: FC<Props> = ({ pokemon }) => {
-  const { name, id, imgUrl, imgUrlBack } = pokemon;
+  const { name, id, imgUrl, imgUrlBack, type1, type2 } = pokemon;
 
   return (
     <PokemonCardStyled pokemon={pokemon} className="pokemon-card">
@@ -28,7 +29,10 @@ const PokemonCard: FC<Props> = ({ pokemon }) => {
           />
         </Link>
       </div>
-      <div className="types"></div>
+      <div className="types">
+        <PokemonTypes type={type1} />
+        <PokemonTypes type={type2} />
+      </div>
     </PokemonCardStyled>
   );
 };

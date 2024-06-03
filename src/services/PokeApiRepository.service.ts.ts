@@ -29,9 +29,9 @@ export class PokeApiRespository {
         weight: pokemonInfo.weight,
         height: pokemonInfo.height,
       },
-      stats: pokemonInfo.stats.map((s) => ({
-        name: s.stat.name,
-        value: s.base_stat,
+      stats: pokemonInfo.stats.map((stat) => ({
+        name: stat.stat.name,
+        value: stat.base_stat,
       })),
       type1: pokemonInfo.types[0]?.type.name as keyof typeof pokeType,
       type2: pokemonInfo.types[1]?.type.name as keyof typeof pokeType,
