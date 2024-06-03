@@ -1,4 +1,4 @@
-import { Pokemon } from '../../types/pokemon';
+import { Pokemon } from '../../models/pokemon';
 import { FC } from 'react';
 import PokemonCard from '../pokemonCard/PokemonCard';
 import { PokemonCardListStyled } from './PokemonCardListStyled';

@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Pokemon } from '../../types/pokemon';
+import { Pokemon } from '../../models/pokemon';
 import { PokemonCardDetailStyled } from './PokemonCardDetailStyled';
 
 export interface Props {

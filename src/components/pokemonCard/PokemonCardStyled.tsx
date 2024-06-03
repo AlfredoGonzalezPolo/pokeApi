@@ -8,7 +8,7 @@ export const PokemonCardStyled = styled.article<Props>`
   justify-content: space-between;
   padding: 0.5rem;
   width: 250px;
-  height: 300px;
+  height: 350px;
   gap: 0.5rem;
   transition: transform 0.3s ease;
   backdrop-filter: blur(2px);
@@ -44,5 +44,14 @@ export const PokemonCardStyled = styled.article<Props>`
   .pokemon-img {
     min-width: 120px;
     max-height: 180px;
+  }
+
+  .types {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    p {
+      color: #000000;
+    }
   }
 `;

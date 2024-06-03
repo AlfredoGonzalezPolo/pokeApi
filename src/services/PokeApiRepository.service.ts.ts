@@ -1,10 +1,10 @@
 import axios from 'axios';
-import { pokeType } from '../types/pokeType';
-import { Pokemon } from '../types/pokemon';
-import { PokemonResponse } from '../types/pokemonDataResponse';
-import { PokemonInfo } from '../types/pokemonInfo';
-import { PokemonsByType } from '../types/pokemonsByType';
-import { PokemonsPage } from '../types/pokemonsPage';
+import { pokeType } from '../models/pokeType';
+import { Pokemon } from '../models/pokemon';
+import { PokemonResponse } from '../models/pokemonDataResponse';
+import { PokemonInfo } from '../models/pokemonInfo';
+import { PokemonsByType } from '../models/pokemonsByType';
+import { PokemonsPage } from '../models/pokemonsPage';
 
 // const url = 'https://pokeapi.co/api/v2';
 
@@ -85,8 +85,7 @@ export class PokeApiRespository {
         ),
       };
 
-      const pokemonByTypeData = await this.getPokemonsData(PokemonsByType);
-      return pokemonByTypeData;
+      return this.getPokemonsData(PokemonsByType);
     } catch (error) {
       return undefined;
     }
