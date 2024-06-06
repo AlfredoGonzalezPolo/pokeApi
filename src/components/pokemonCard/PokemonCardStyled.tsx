@@ -91,7 +91,9 @@ export const PokemonCardStyled = styled.article<Props>`
       line-height: 44px;
       text-align: center;
       background: #9fa1e4;
+      border: none;
       border-radius: 50%;
+      outline: none;
     }
 
     .swiper-button-prev {

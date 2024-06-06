@@ -23,7 +23,7 @@ export const PokemonCardDetailStyled = styled.article<Props>`
 
   .pokemon-info {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
     padding: 10px 15px;

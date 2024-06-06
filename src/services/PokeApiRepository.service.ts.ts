@@ -27,6 +27,8 @@ export class PokeApiRespository {
         '/assets/pokeball-default.gif',
       imgUrl2: pokemonInfo.sprites.other.showdown.front_default,
       imgUrl2Back: pokemonInfo.sprites.other.showdown.back_default,
+      imgUrl3: pokemonInfo.sprites.other.showdown.front_shiny,
+      imgUrl3Back: pokemonInfo.sprites.other.showdown.back_shiny,
 
       size: {
         weight: pokemonInfo.weight,

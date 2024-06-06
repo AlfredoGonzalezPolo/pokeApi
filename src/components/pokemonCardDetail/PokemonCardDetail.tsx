@@ -8,13 +8,13 @@ export interface Props {
 }
 
 export const PokemonCardDetail: FC<Props> = ({ pokemon }) => {
-  const { name, id, imgUrl, imgUrlBack, type1, type2, stats } = pokemon;
+  const { name, id, imgUrl, imgUrlBack, type1, type2, stats, size } = pokemon;
   return (
     <>
       <PokemonCardDetailStyled pokemon={pokemon}>
         <div className="pokemon-info">
-          <h2>{name}</h2>
-          <p className="pokemon-id">#{id.toString()}</p>
+          <h2 className="pokemon-name">{name.toUpperCase()}</h2>
+          <p className="pokemon-id"># {id.toString()}</p>
         </div>
         <div className="pokemon-details">
           <img
@@ -26,6 +26,12 @@ export const PokemonCardDetail: FC<Props> = ({ pokemon }) => {
           />
         </div>
         <div className="stats">
+          <p className="pokemon-stats">
+            Weight: <b>{size.weight}</b> kg
+          </p>
+          <p className="pokemon-stats">
+            Height: <b>{size.height}</b> cm
+          </p>
           {stats.map((s) => (
             <p className="pokemon-stats" key={s.name + id}>
               {s.name} : <b>{s.value}</b>
