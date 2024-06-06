@@ -50,8 +50,56 @@ export const PokemonCardStyled = styled.article<Props>`
     display: flex;
     align-items: center;
     gap: 0.5rem;
+
     p {
       color: #000000;
+    }
+  }
+
+  .pokemon-img-container {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+
+    .swiper-container {
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+      position: absolute;
+      top: 50%;
+      width: 27px;
+      height: 44px;
+      margin-top: -22px;
+      z-index: 10;
+      cursor: pointer;
+      color: #fff;
+      font-size: 18px;
+      line-height: 44px;
+      text-align: center;
+      background: #9fa1e4;
+      border-radius: 50%;
+    }
+
+    .swiper-button-prev {
+      left: 10px;
+    }
+
+    .swiper-button-next {
+      right: 10px;
     }
   }
 `;

@@ -1,13 +1,14 @@
 import { FC } from 'react';
 import { Pokemon } from '../../models/pokemon';
 import { PokemonCardDetailStyled } from './PokemonCardDetailStyled';
+import PokemonTypes from '../Pokemontypes/PokemonTypes';
 
 export interface Props {
   pokemon: Pokemon;
 }
 
 export const PokemonCardDetail: FC<Props> = ({ pokemon }) => {
-  const { name, id, imgUrl, imgUrlBack } = pokemon;
+  const { name, id, imgUrl, imgUrlBack, type1, type2, stats } = pokemon;
   return (
     <>
       <PokemonCardDetailStyled pokemon={pokemon}>
@@ -23,6 +24,19 @@ export const PokemonCardDetail: FC<Props> = ({ pokemon }) => {
             onMouseOver={(e) => (e.currentTarget.src = imgUrlBack)}
             onMouseOut={(e) => (e.currentTarget.src = imgUrl)}
           />
+        </div>
+        <div className="stats">
+          {stats.map((s) => (
+            <p className="pokemon-stats" key={s.name + id}>
+              {s.name} : <b>{s.value}</b>
+            </p>
+          ))}
+        </div>
+        <div className="types">
+          <PokemonTypes type={type1}></PokemonTypes>
+          <p>{type1}</p>
+          <PokemonTypes type={type2}></PokemonTypes>
+          <p>{type2}</p>
         </div>
       </PokemonCardDetailStyled>
     </>

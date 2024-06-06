@@ -4,11 +4,10 @@ import { Props } from './PokemonCardDetail';
 export const PokemonCardDetailStyled = styled.article<Props>`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
   justify-content: center;
-  padding: 0.5rem;
-  width: 250px;
-  height: 300px;
+  padding: 5rem;
+  padding-left: 10rem;
   gap: 0.5rem;
   transition: transform 0.3s ease;
   backdrop-filter: blur(2px);
@@ -39,5 +38,13 @@ export const PokemonCardDetailStyled = styled.article<Props>`
   .pokemon-img {
     min-width: 120px;
     max-height: 180px;
+  }
+  .types {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    p {
+      color: #000000;
+    }
   }
 `;

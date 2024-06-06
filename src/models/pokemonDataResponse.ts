@@ -21,5 +21,11 @@ export type PokemonResponse = {
         };
       };
     };
+    other: {
+      showdown: {
+        front_default: string;
+        back_default: string;
+      };
+    };
   };
 };
