@@ -62,19 +62,37 @@ export class PokeApiRespository {
     }
   }
 
+  // async getPokemonPage(page: number = 1, limit: number = 20) {
+  //   try {
+  //     const response = await axios.get(
+  //       `${this.url}/pokemon/?limit=${limit}&offset=${page * limit}`
+  //     );
+  //     const pokemonsPage: PokemonsPage = response.data;
+  //     const pokemonsPageData = await this.getPokemonsData(pokemonsPage);
+
+  //     return {
+  //       pokemonsPageData,
+  //       maxPages: Math.ceil(pokemonsPage.count / limit - 1),
+  //     };
+  //   } catch (error) {
+  //     return undefined;
+  //   }
+  // }
+
   async getPokemonPage(page: number = 1, limit: number = 20) {
     try {
       const response = await axios.get(
-        `${this.url}/pokemon/?limit=${limit}&offset=${page * limit}`
+        `${this.url}/pokemon/?limit=${limit}&offset=${(page - 1) * limit}`
       );
       const pokemonsPage: PokemonsPage = response.data;
       const pokemonsPageData = await this.getPokemonsData(pokemonsPage);
 
       return {
         pokemonsPageData,
-        maxPages: Math.ceil(pokemonsPage.count / limit - 1),
+        maxPages: Math.ceil(pokemonsPage.count / limit),
       };
     } catch (error) {
+      console.error('Failed to fetch Pokemon page', error);
       return undefined;
     }
   }

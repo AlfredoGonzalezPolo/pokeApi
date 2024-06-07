@@ -2,8 +2,9 @@ import { FC } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Navigation } from 'swiper/modules';
 import { Link } from 'react-router-dom';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 import styled from 'styled-components';
-
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'swiper/scss';
 import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
@@ -69,10 +70,11 @@ const Myswiper: FC<Props> = ({ pokemon }) => {
         ].map((image, index) => (
           <SwiperSlide key={index}>
             <Link to={`${id}`}>
-              <img
+              <LazyLoadImage
                 src={image.img}
                 alt={name}
                 className="pokemon-img"
+                effect="opacity"
                 onClick={() => playAudio(whoIsAudioSrc)}
                 onMouseOver={(e) => (e.currentTarget.src = image.imgBack)}
                 onMouseOut={(e) => (e.currentTarget.src = image.img)}

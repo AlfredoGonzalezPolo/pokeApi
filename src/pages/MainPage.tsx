@@ -1,6 +1,4 @@
 import styled from 'styled-components';
-import { Footer } from '../components/footer/Footer';
-import { Header } from '../components/header/Header';
 import PokemonCardList from '../components/pokemonCardList/PokemonCardList';
 import usePokemons from '../hooks/usePokemons';
 import Pagination from '../components/pagination/Pagination';
@@ -18,7 +16,6 @@ const MainPage = () => {
   return (
     <>
       <MainPageStyled>
-        <Header />
         <Pagination
           maxPages={maxPages}
           page={page}
@@ -32,7 +29,6 @@ const MainPage = () => {
           setLimit={setLimit}
           setPage={setPage}
         />
-        <Footer />
       </MainPageStyled>
     </>
   );
