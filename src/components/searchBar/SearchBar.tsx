@@ -5,6 +5,13 @@ import { SearchBarStyled } from './SearchBarStyled';
 export function SearchBar() {
   const navigate = useNavigate();
 
+  const handleSearchForm = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const input = e.currentTarget.elements.namedItem('id') as HTMLInputElement;
+    navigate(`/${input.value.toLowerCase()}`);
+    input.value = '';
+  };
+
   const handleTypeForm = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const input = e.currentTarget.elements.namedItem(
@@ -34,7 +41,7 @@ export function SearchBar() {
               </div>
             </label>
           </form>
-          <form className="search-form">
+          <form onSubmit={handleSearchForm} className="search-form">
             <label>
               <div className="search-form_input-container">
                 <input
