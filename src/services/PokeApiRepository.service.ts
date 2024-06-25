@@ -100,7 +100,7 @@ export class PokeApiRespository {
   async getPokemonsByType(type: string | undefined) {
     try {
       const response = await axios.get(`${this.url}/type/${type}`);
-      const pokemonsResponse = response.data;
+      const pokemonsResponse = await response.data;
 
       const PokemonsByType: PokemonsByType = {
         results: pokemonsResponse.pokemon.map(

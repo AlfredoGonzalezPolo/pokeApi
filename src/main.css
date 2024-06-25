@@ -6,9 +6,17 @@
   box-sizing: border-box;
 }
 
+/* @font-face {
+  font-family: 'Pokemon Solid';
+  src: url('/assets/fonts/Pokemon-Solid.woff2') format('woff2'),
+    url('assets/fonts/Pokemon-Solid.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+} */
+
 html,
 body {
-  font-family: 'Pokemon Hollow', 'Pocket Monk', 'Pokemon Solid', 'Courier New',
+  font-family: 'Pokemon Solid', 'Pokemon Hollow', 'Pocket Monk', 'Courier New',
     Courier, monospace, sans-serif;
   background-image: url('/assets/fondo3.webp');
   background-size: cover;

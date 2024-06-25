@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import PokemonCardList from '../components/pokemonCardList/PokemonCardList';
 import usePokemons from '../hooks/usePokemons';
 import Pagination from '../components/pagination/Pagination';
+import { SearchBar } from '../components/searchBar/SearchBar';
 
 const MainPageStyled = styled.section`
   margin: 0;
@@ -16,6 +17,7 @@ const MainPage = () => {
   return (
     <>
       <MainPageStyled>
+        <SearchBar></SearchBar>
         <Pagination
           maxPages={maxPages}
           page={page}

@@ -13,7 +13,13 @@ const PaginationButton: FC<Props> = ({
   onClick,
 }) => (
   <li>
-    <button className={className} disabled={disabled} onClick={onClick}>
+    <button
+      className={className}
+      disabled={disabled}
+      onClick={onClick}
+      role="button"
+      aria-label={className}
+    >
       {children}
     </button>
   </li>

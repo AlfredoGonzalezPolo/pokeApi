@@ -52,6 +52,7 @@ export const PokemonCardStyled = styled.article<Props>`
     gap: 0.5rem;
 
     p {
+      font-weight: 700;
       color: #000000;
     }
   }
