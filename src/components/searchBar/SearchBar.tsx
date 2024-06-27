@@ -32,10 +32,7 @@ export function SearchBar() {
                       type !== 'undefined' && <option key={type}>{type}</option>
                   )}
                 </select>
-                <button
-                  type="submit"
-                  className="filter-form_select-container_button"
-                >
+                <button type="submit" className="select-input_button">
                   FILTER
                 </button>
               </div>
