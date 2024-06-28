@@ -88,101 +88,87 @@ export const PaginationStyled = styled.section<StyledProps>`
     label select {
       background-color: white;
     }
-
-    @media (max-width: 905px) {
-      .results {
-        position: relative;
-      }
-
-      li {
-        button {
-          position: relative;
-          right: 20px;
-          width: 26px;
-          padding: 7px 0;
-          font-size: 0.7rem;
-          margin: 0;
-        }
-      }
-
-      .results-label {
-        color: #000000;
-        font-size: 0.4rem;
-      }
-    }
-  }
-
-  @media (max-width: 875px) {
-    flex-direction: column;
-    gap: 20px;
-    padding: 0;
-
-    .results {
-      position: relative;
-      display: flex;
-      align-items: center;
-      font-size: 1rem;
-      margin-left: 0.4rem;
-
-      label {
-        display: flex;
-        align-items: center;
-
-        select {
-          font-size: 0.8rem;
-          padding: 6px 0px 4px 4px;
-          border-radius: 15px;
-          background-color: #9fa1e4;
-          color: #000000;
-          font-weight: 700;
-        }
-
-        option {
-          border-radius: 50%;
-        }
-      }
-    }
-
-    .results-label {
-      font-size: 1.2rem;
-    }
-
-    .buttons {
-      position: relative;
-      margin: 0;
-      top: 120px;
-      left: 20px;
-    }
-
-    li {
-      button {
-        position: relative;
-        right: 26px;
-        width: 26px;
-        padding: 8px 0;
-        border-radius: 50%;
-        font-size: 0.9rem;
-        margin: 0;
-      }
-
-      .active {
-        background-color: #9fa1e4;
-        color: #d33030;
-        outline: none;
-        border-radius: 50%;
-      }
-    }
-
-    .searchBarContainer {
-      display: flex;
-      position: absolute;
-      justify-content: right;
-    }
   }
 
   .arrow-icon {
     color: #bcb8b8;
     font-size: 1rem;
     font-weight: 900;
+  }
+
+  @media (max-width: 1200px) {
+    .results {
+      font-size: 1rem;
+
+      label select {
+        font-size: 0.9rem;
+      }
+    }
+
+    .buttons {
+      padding: 20px;
+      margin-left: 200px;
+
+      li button {
+        width: 30px;
+        padding: 8px;
+      }
+
+      .arrow-icon {
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  @media (max-width: 900px) {
+    .results {
+      font-size: 0.9rem;
+
+      label select {
+        font-size: 0.8rem;
+      }
+    }
+
+    .buttons {
+      padding: 16px;
+      margin-left: 160px;
+
+      li button {
+        width: 26px;
+        padding: 7px;
+      }
+
+      .arrow-icon {
+        font-size: 0.8rem;
+      }
+    }
+  }
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    align-items: center;
+
+    .results {
+      font-size: 0.8rem;
+
+      label select {
+        font-size: 0.7rem;
+      }
+    }
+
+    .buttons {
+      padding: 12px;
+      margin-left: 0;
+      margin-top: 1rem;
+
+      li button {
+        width: 22px;
+        padding: 6px;
+      }
+
+      .arrow-icon {
+        font-size: 0.7rem;
+      }
+    }
   }
 `;

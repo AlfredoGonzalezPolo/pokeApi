@@ -39,12 +39,95 @@ export const PokemonCardDetailStyled = styled.article<Props>`
     min-width: 120px;
     max-height: 180px;
   }
+
   .types {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+
     p {
       color: #000000;
+    }
+  }
+
+  @media (max-width: 884px) {
+    padding: 3rem;
+    padding-left: 6rem;
+    margin: 10rem 0 0 14rem;
+
+    .pokemon-info {
+      padding: 8px 12px;
+
+      h2 {
+        font-size: 1.3rem;
+      }
+    }
+
+    .pokemon-img {
+      min-width: 100px;
+      max-height: 150px;
+    }
+
+    .types {
+      gap: 0.4rem;
+
+      p {
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 2rem;
+    padding-left: 4rem;
+    margin: 8rem 0 0 10rem;
+
+    .pokemon-info {
+      padding: 6px 10px;
+
+      h2 {
+        font-size: 1.1rem;
+      }
+    }
+
+    .pokemon-img {
+      min-width: 80px;
+      max-height: 120px;
+    }
+
+    .types {
+      gap: 0.3rem;
+
+      p {
+        font-size: 0.8rem;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 1rem;
+    padding-left: 2rem;
+    margin: 6rem 0 0 5rem;
+
+    .pokemon-info {
+      padding: 4px 8px;
+
+      h2 {
+        font-size: 0.9rem;
+      }
+    }
+
+    .pokemon-img {
+      min-width: 60px;
+      max-height: 100px;
+    }
+
+    .types {
+      gap: 0.2rem;
+
+      p {
+        font-size: 0.7rem;
+      }
     }
   }
 `;

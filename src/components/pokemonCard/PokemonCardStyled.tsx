@@ -105,4 +105,23 @@ export const PokemonCardStyled = styled.article<Props>`
       right: 10px;
     }
   }
+  @media (max-width: 769px) {
+    width: 220px;
+    height: 300px;
+
+    .pokemon-img {
+      min-width: 120px;
+      max-height: 150px;
+    }
+
+    .pokemon-info {
+      .pokemon-name {
+        font-size: 1.2rem;
+      }
+
+      .pokemon-id {
+        font-size: 0.8rem;
+      }
+    }
+  }
 `;

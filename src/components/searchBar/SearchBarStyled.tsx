@@ -22,7 +22,6 @@ export const SearchBarStyled = styled.section`
     width: 60px;
     height: 40px;
     border-radius: 20px;
-    /* background-color: #212020; */
     cursor: pointer;
     position: relative;
     left: 10px;
@@ -33,14 +32,11 @@ export const SearchBarStyled = styled.section`
     background-color: #c4c7f7;
   }
 
-  .select-input_button:hover {
-    cursor: pointer;
-  }
-
   .search-input {
     font-size: 0.8rem;
     padding: 0.3rem;
     cursor: text;
+    outline: auto;
   }
 
   .search-input::placeholder {
@@ -97,292 +93,122 @@ export const SearchBarStyled = styled.section`
       color: #e0dcdc;
     }
   }
-  @media (max-width: 1192px) {
+
+  @media (max-width: 1200px) {
     gap: 1rem;
 
-    label {
-      font-size: 0.5rem;
+    .filter-form {
+      margin-left: 4rem;
+    }
 
-      input {
-        width: 80px;
+    .select-input_button,
+    .search-input_button {
+      width: 50px;
+      height: 35px;
+    }
+
+    .search-input {
+      font-size: 0.7rem;
+      padding: 0.25rem;
+    }
+
+    .search-input::placeholder {
+      font-size: 0.9rem;
+    }
+
+    label {
+      font-size: 0.7rem;
+
+      .filter-form_select-container {
+        padding: 0.4rem 0.8rem;
       }
 
       input,
       button,
       select {
-        font-size: 0.6rem;
+        font-size: 0.8rem;
       }
-    }
-
-    .filter-form,
-    .search-form {
-      width: 180px;
-      padding: 0;
-      margin: 0;
-    }
-
-    .search-input::placeholder {
-      color: #e5dfdf;
-      width: fit-content;
-      font-size: 0.6rem;
-    }
-
-    label {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      align-items: center;
-      font-size: small;
-
-      .filter-form_select-container,
-      .search-form_input-container {
-        padding: 0.2rem 0.2rem;
-      }
-    }
-
-    .select-input_button,
-    .search-input_button {
-      width: 40px;
-      height: 24px;
     }
   }
 
-  @media (max-width: 1250px) {
-    .search-bar {
-      position: relative;
-      left: 0px;
-      gap: 30px;
-      padding: 0;
-      margin: 0;
+  @media (max-width: 900px) {
+    gap: 0.8rem;
+
+    .filter-form {
+      margin-left: 3rem;
     }
 
     .select-input_button,
     .search-input_button {
-      width: 60px;
-      height: 44px;
-      position: relative;
-      left: 0px;
-      border-radius: 20px;
-    }
-
-    label {
-      font-size: 1rem;
-      margin: 0;
-      padding: 0;
-      width: max-content;
-
-      input {
-        width: 50px;
-        justify-content: center;
-        align-items: center;
-      }
-
-      input::placeholder {
-        font-size: 0.01rem;
-      }
-
-      input,
-      button,
-      select {
-        font-size: 0.6rem;
-      }
-    }
-
-    .filter-form,
-    .search-form {
-      width: 120px;
-      padding: 0;
-      margin: 0;
-    }
-
-    .search-input::placeholder {
-      color: #e5dfdf;
-      width: fit-content;
-      font-size: 0.6rem;
-    }
-
-    .select-input_button,
-    .search-input_button {
-      width: 40px;
-      height: 24px;
+      width: 45px;
+      height: 30px;
     }
 
     .search-input {
       font-size: 0.6rem;
       padding: 0.2rem;
     }
-  }
 
-  @media (max-width: 1192px) {
-    .search-bar {
-      position: relative;
-      top: 0px;
-      left: 10px;
-      gap: 8px;
-      padding: 0;
-      margin: 0;
+    .search-input::placeholder {
+      font-size: 0.8rem;
     }
-  }
 
-  @media (max-width: 875px) {
-    .search-bar {
-      position: relative;
-      top: 30px;
-      left: 10px;
-      gap: 8px;
-      padding: 0;
-      margin: 0;
+    label {
+      font-size: 0.6rem;
+
+      .filter-form_select-container {
+        padding: 0.3rem 0.6rem;
+      }
+
+      input,
+      button,
+      select {
+        font-size: 0.7rem;
+      }
     }
   }
 
   @media (max-width: 600px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+    margin-right: 0;
+
     .search-bar {
-      position: relative;
-      flex-direction: row;
-      justify-content: center;
-      top: 30px;
-      left: 20px;
-      padding-right: 50px;
-      margin: 0;
+      flex-direction: column;
+      gap: 1rem;
     }
 
-    .search-form {
-      position: relative;
-      left: 18px;
+    .filter-form {
+      margin-left: 0;
     }
 
-    .search-form label {
-      margin-right: 8px;
+    .select-input_button,
+    .search-input_button {
+      width: 40px;
+      height: 25px;
+    }
+
+    .search-input {
+      font-size: 0.5rem;
+      padding: 0.15rem;
+    }
+
+    .search-input::placeholder {
+      font-size: 0.7rem;
     }
 
     label {
-      font-size: 1rem;
-      margin: 0;
-      padding: 0;
-      width: max-content;
+      font-size: 0.5rem;
 
-      input {
-        width: 50px;
-        justify-content: center;
-        align-items: center;
-      }
-
-      input::placeholder {
-        font-size: 0.01rem;
+      .filter-form_select-container {
+        padding: 0.2rem 0.4rem;
       }
 
       input,
       button,
       select {
         font-size: 0.6rem;
-      }
-    }
-
-    .filter-form,
-    .search-form {
-      width: 120px;
-      padding: 0;
-      margin: 0;
-    }
-
-    .search-input::placeholder {
-      color: #e5dfdf;
-      width: fit-content;
-      font-size: 0.6rem;
-    }
-
-    .select-input_button,
-    .search-input_button {
-      width: 40px;
-      height: 24px;
-    }
-
-    .search-input {
-      font-size: 0.6rem;
-      padding: 0.2rem;
-    }
-  }
-
-  @media (max-width: 475px) {
-    .search-bar {
-      display: flex;
-      position: relative;
-      margin-right: 50px;
-      gap: 70px;
-      top: 14px;
-    }
-
-    .select-input_button,
-    .search-input_button {
-      width: 60px;
-      height: 40px;
-      padding: 0.3rem;
-      border-radius: 20px;
-      position: relative;
-      left: 4px;
-      font-size: 0.9rem;
-    }
-
-    .search-input {
-      font-size: 1.2rem;
-      padding: 0.2rem;
-    }
-
-    .search-input::placeholder {
-      font-size: 1rem;
-      font-family: inherit;
-    }
-
-    label {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      font-size: small;
-      gap: 6px;
-
-      .filter-form_select-container {
-        padding: 0.2rem 0.4rem;
-        background-color: #424141;
-        box-shadow: 0 3px 15px 0 rgba(21, 21, 22, 0.37);
-        border-radius: 20px;
-        border: 1px solid rgba(255, 255, 255, 0.18);
-      }
-
-      .filter-form_select-container:hover {
-        background-color: #212121;
-      }
-
-      input {
-        width: 100px;
-        cursor: default;
-      }
-
-      input,
-      button,
-      select {
-        font-size: 0.9rem;
-        background-color: transparent;
-        border: 0;
-        color: #f5f3f3;
-        font-family: inherit;
-
-        :focus {
-          outline: none;
-        }
-        ::placeholder {
-          color: #e5dfdf;
-          font-size: 1rem;
-        }
-      }
-
-      select {
-        font-size: 1.1rem;
-        margin-right: 0.8rem;
-      }
-
-      option {
-        background-color: #cc4e4e;
-        color: #e0dcdc;
       }
     }
   }
