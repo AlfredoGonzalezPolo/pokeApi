@@ -30,7 +30,7 @@ export const DetailPage = () => {
   return (
     <>
       <DetailPageStyles>
-        <button onClick={() => navigate('/')}>Volver</button>
+        <button onClick={() => navigate(-1)}>Volver</button>
         {isPending ? pokemon && <PokemonCardDetail pokemon={pokemon} /> : null}
       </DetailPageStyles>
     </>

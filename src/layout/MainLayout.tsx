@@ -1,20 +1,20 @@
 import styled from 'styled-components';
 import { Outlet } from 'react-router-dom';
-import { Header } from '../components/header/Header';
-import { Footer } from '../components/footer/Footer';
 
 const Main = styled.main`
   margin: 0 auto;
+  padding: 4rem;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const MainLayout = () => {
   return (
     <>
       <Main>
-        <Header />
         <Outlet />
-        <Footer />
       </Main>
     </>
   );

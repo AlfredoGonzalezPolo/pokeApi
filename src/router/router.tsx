@@ -16,6 +16,7 @@ const router = createBrowserRouter(
     <Route path="/" element={<MainLayout />}>
       <Route
         index
+        path="/"
         element={
           <Suspense fallback={<div>Loading...</div>}>
             <MainPage />
