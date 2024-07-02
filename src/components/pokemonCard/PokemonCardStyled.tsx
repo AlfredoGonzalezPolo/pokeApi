@@ -8,7 +8,7 @@ export const PokemonCardStyled = styled.article<Props>`
   justify-content: space-between;
   padding: 0.5rem;
   width: 250px;
-  height: 300px;
+  height: 350px;
   gap: 0.5rem;
   transition: transform 0.3s ease;
   backdrop-filter: blur(2px);
@@ -23,7 +23,8 @@ export const PokemonCardStyled = styled.article<Props>`
 
   &:hover {
     transform: scale(1.05);
-    filter: brightness(0.9) saturate(0.5);
+    filter: brightness(1) saturate(1.5);
+    background-color: #c4c7f7;
   }
 
   .pokemon-info {
@@ -43,5 +44,84 @@ export const PokemonCardStyled = styled.article<Props>`
   .pokemon-img {
     min-width: 120px;
     max-height: 180px;
+  }
+
+  .types {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    p {
+      font-weight: 700;
+      color: #000000;
+    }
+  }
+
+  .pokemon-img-container {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+
+    .swiper-container {
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+      position: absolute;
+      top: 50%;
+      width: 27px;
+      height: 44px;
+      margin-top: -22px;
+      z-index: 10;
+      cursor: pointer;
+      color: #fff;
+      font-size: 18px;
+      line-height: 44px;
+      text-align: center;
+      background: #9fa1e4;
+      border: none;
+      border-radius: 50%;
+      outline: none;
+    }
+
+    .swiper-button-prev {
+      left: 10px;
+    }
+
+    .swiper-button-next {
+      right: 10px;
+    }
+  }
+  @media (max-width: 769px) {
+    width: 220px;
+    height: 300px;
+
+    .pokemon-img {
+      min-width: 120px;
+      max-height: 150px;
+    }
+
+    .pokemon-info {
+      .pokemon-name {
+        font-size: 1.2rem;
+      }
+
+      .pokemon-id {
+        font-size: 0.8rem;
+      }
+    }
   }
 `;

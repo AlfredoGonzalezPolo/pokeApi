@@ -1,14 +1,16 @@
 import { FC } from 'react';
-import { Pokemon } from '../../types/pokemon';
+
+import { Pokemon } from '../../models/pokemon';
+import PokemonTypes from '../Pokemontypes/PokemonTypes';
+import Myswiper from '../swiper/Swiper';
 import { PokemonCardStyled } from './PokemonCardStyled';
-import { Link } from 'react-router-dom';
 
 export interface Props {
   pokemon: Pokemon;
 }
 
 const PokemonCard: FC<Props> = ({ pokemon }) => {
-  const { name, id, imgUrl, imgUrlBack } = pokemon;
+  const { name, id, type1, type2 } = pokemon;
 
   return (
     <PokemonCardStyled pokemon={pokemon} className="pokemon-card">
@@ -17,18 +19,14 @@ const PokemonCard: FC<Props> = ({ pokemon }) => {
         <p className="pokemon-id"># {id.toString()}</p>
       </div>
       <div className="pokemon-img-container">
-        <Link to={`${id}`}>
-          <img
-            src={imgUrl}
-            alt={name}
-            // width={145}
-            className="pokemon-img"
-            onMouseOver={(e) => (e.currentTarget.src = imgUrlBack)}
-            onMouseOut={(e) => (e.currentTarget.src = imgUrl)}
-          />
-        </Link>
+        <Myswiper pokemon={pokemon} />
       </div>
-      <div className="types"></div>
+      <div className="types">
+        <PokemonTypes type={type1} />
+        <p>{type1}</p>
+        <PokemonTypes type={type2} />
+        <p>{type2}</p>
+      </div>
     </PokemonCardStyled>
   );
 };

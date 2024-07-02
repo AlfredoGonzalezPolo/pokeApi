@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Pokemon } from '../types/pokemon';
+import { Pokemon } from '../models/pokemon.ts';
 import { PokeApiRespository } from '../services/PokeApiRepository.service.ts';
 
 export const pokeApiRepo = new PokeApiRespository('https://pokeapi.co/api/v2');

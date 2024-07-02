@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Pokemon } from '../types/pokemon';
+import { Pokemon } from '../models/pokemon.ts';
 import { pokeApiRepo } from './usePokemons.ts';
 
 const usePokemonDetail = (pokemonId: string | number) => {

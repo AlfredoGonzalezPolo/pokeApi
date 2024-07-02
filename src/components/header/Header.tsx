@@ -7,7 +7,7 @@ export function Header() {
         <div className="logo-container">
           <img
             width={'300em'}
-            src="/assets/pokemon-logo.png"
+            src="/assets/pokemon-logo.webp"
             className="pokemon-logo"
             alt="Pokemon logo"
           />

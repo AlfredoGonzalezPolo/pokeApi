@@ -3,7 +3,11 @@ import { Outlet } from 'react-router-dom';
 
 const Main = styled.main`
   margin: 0 auto;
+  padding: 4rem;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const MainLayout = () => {

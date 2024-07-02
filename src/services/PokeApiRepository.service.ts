@@ -1,14 +1,16 @@
-import { pokeType } from '../types/pokeType';
-import { Pokemon } from '../types/pokemon';
-import { PokemonResponse } from '../types/pokemonDataResponse';
-import { PokemonInfo } from '../types/pokemonInfo';
-import { PokemonsByType } from '../types/pokemonsByType';
-import { PokemonsPage } from '../types/pokemonsPage';
+import axios from 'axios';
+import { pokeType } from '../models/pokeType';
+import { Pokemon } from '../models/pokemon';
+import { PokemonResponse } from '../models/pokemonDataResponse';
+import { PokemonInfo } from '../models/pokemonInfo';
+import { PokemonsByType } from '../models/pokemonsByType';
+import { PokemonsPage } from '../models/pokemonsPage';
 
 // const url = 'https://pokeapi.co/api/v2';
 
 export class PokeApiRespository {
   constructor(public url: string) {}
+
   async mapPokemonApiData(pokemonInfo: PokemonResponse) {
     const pokemon: Pokemon = {
       id: pokemonInfo.id,
@@ -23,13 +25,18 @@ export class PokeApiRespository {
           .back_default ||
         pokemonInfo.sprites.back_default ||
         '/assets/pokeball-default.gif',
+      imgUrl2: pokemonInfo.sprites.other.showdown.front_default,
+      imgUrl2Back: pokemonInfo.sprites.other.showdown.back_default,
+      imgUrl3: pokemonInfo.sprites.other.showdown.front_shiny,
+      imgUrl3Back: pokemonInfo.sprites.other.showdown.back_shiny,
+
       size: {
         weight: pokemonInfo.weight,
         height: pokemonInfo.height,
       },
-      stats: pokemonInfo.stats.map((s) => ({
-        name: s.stat.name,
-        value: s.base_stat,
+      stats: pokemonInfo.stats.map((stat) => ({
+        name: stat.stat.name,
+        value: stat.base_stat,
       })),
       type1: pokemonInfo.types[0]?.type.name as keyof typeof pokeType,
       type2: pokemonInfo.types[1]?.type.name as keyof typeof pokeType,
@@ -39,8 +46,8 @@ export class PokeApiRespository {
 
   async getPokemonsData(pokemonsPage: PokemonsPage | PokemonsByType) {
     const pokemonDataPromise = pokemonsPage.results.map(async (pokemonRef) => {
-      const response = await fetch(pokemonRef.url);
-      const pokemonInfo: PokemonResponse = await response.json();
+      const response = await axios.get(pokemonRef.url);
+      const pokemonInfo: PokemonResponse = response.data;
       const pokemon = this.mapPokemonApiData(pokemonInfo);
 
       return pokemon;
@@ -55,27 +62,45 @@ export class PokeApiRespository {
     }
   }
 
+  // async getPokemonPage(page: number = 1, limit: number = 20) {
+  //   try {
+  //     const response = await axios.get(
+  //       `${this.url}/pokemon/?limit=${limit}&offset=${page * limit}`
+  //     );
+  //     const pokemonsPage: PokemonsPage = response.data;
+  //     const pokemonsPageData = await this.getPokemonsData(pokemonsPage);
+
+  //     return {
+  //       pokemonsPageData,
+  //       maxPages: Math.ceil(pokemonsPage.count / limit - 1),
+  //     };
+  //   } catch (error) {
+  //     return undefined;
+  //   }
+  // }
+
   async getPokemonPage(page: number = 1, limit: number = 20) {
     try {
-      const response = await fetch(
-        `${this.url}/pokemon/?limit=${limit}&offfset=${page * limit}`
+      const response = await axios.get(
+        `${this.url}/pokemon/?limit=${limit}&offset=${(page - 1) * limit}`
       );
-      const pokemonsPage: PokemonsPage = await response.json();
+      const pokemonsPage: PokemonsPage = response.data;
       const pokemonsPageData = await this.getPokemonsData(pokemonsPage);
 
       return {
         pokemonsPageData,
-        maxPages: Math.ceil(pokemonsPage.count / limit - 1),
+        maxPages: Math.ceil(pokemonsPage.count / limit),
       };
     } catch (error) {
+      console.error('Failed to fetch Pokemon page', error);
       return undefined;
     }
   }
 
   async getPokemonsByType(type: string | undefined) {
     try {
-      const response = await fetch(`${this.url}/type/${type}`);
-      const pokemonsResponse = await response.json();
+      const response = await axios.get(`${this.url}/type/${type}`);
+      const pokemonsResponse = await response.data;
 
       const PokemonsByType: PokemonsByType = {
         results: pokemonsResponse.pokemon.map(
@@ -83,8 +108,7 @@ export class PokeApiRespository {
         ),
       };
 
-      const pokemonByTypeData = await this.getPokemonsData(PokemonsByType);
-      return pokemonByTypeData;
+      return this.getPokemonsData(PokemonsByType);
     } catch (error) {
       return undefined;
     }
@@ -92,9 +116,9 @@ export class PokeApiRespository {
 
   async getPokemonDetail(pokemonId: string | number) {
     try {
-      const response = await fetch(`${this.url}/pokemon/${pokemonId}`);
+      const response = await axios.get(`${this.url}/pokemon/${pokemonId}`);
 
-      const pokemonInfo: PokemonResponse = await response.json();
+      const pokemonInfo: PokemonResponse = response.data;
       const pokemon = this.mapPokemonApiData(pokemonInfo);
 
       return pokemon;

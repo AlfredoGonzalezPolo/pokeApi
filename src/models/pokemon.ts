@@ -5,7 +5,10 @@ export type Pokemon = {
   name: string;
   imgUrl: string;
   imgUrlBack: string;
-
+  imgUrl2: string;
+  imgUrl2Back: string;
+  imgUrl3: string;
+  imgUrl3Back: string;
   size: {
     weight: number;
     height: number;
